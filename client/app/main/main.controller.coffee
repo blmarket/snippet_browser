@@ -9,17 +9,6 @@ angular.module 'snippetBrowserApp'
   } ]
 
   endPoint = 'https://api.github.com/repos/:owner/:repo'
-  Master = $resource "#{endPoint}/git/refs/:ref", {
-    owner: 'blmarket'
-    repo: 'icpc'
-    ref: 'heads/master'
-  }
-
-  Commit = $resource "#{endPoint}/git/commits/:sha", {
-    owner: 'blmarket'
-    repo: 'icpc'
-  }
-
   Snippets = $resource "#{endPoint}/contents/snippets", {
     owner: 'blmarket'
     repo: 'icpc'
@@ -42,9 +31,4 @@ angular.module 'snippetBrowserApp'
         return
     return
 
-  return
-  content = Contents.fetch path: 'snippets/graph.cpp', ->
-    console.log content
-    console.log base64.decode(content.data.content.replace(/\n/g, ''))
-    return
   return
