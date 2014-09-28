@@ -9,6 +9,7 @@ RUN apt-get update
 RUN apt-get -y install nodejs
 
 ADD dist /root/dist
+ADD node_modules /root/dist/server/node_modules
 
 WORKDIR /root/dist/server
 
